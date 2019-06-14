@@ -32,7 +32,7 @@ CREATE USER [usr2] FOR LOGIN [yongheng]
 CREATE USER [usr3] FOR LOGIN [yongheng]
 GO 
 
----------------------------------------------（第五题和第七题放一起做了）
+---------------------------------------------（第五题&第七题）
 
 USE stdtb
 GO
