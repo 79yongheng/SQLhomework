@@ -1,4 +1,4 @@
----------------------------------------------£¨µÚ¶þÌâ£©
+---------------------------------------------ï¼ˆç¬¬äºŒé¢˜ï¼‰
 
 CREATE DATABASE  [stdtb] ON
 PRIMARY 
@@ -15,24 +15,24 @@ FILEGROWTH = 10%)
 COLLATE Chinese_PRC_CI_AS
 GO
 
----------------------------------------------£¨µÚÈýÌâ£©
+---------------------------------------------ï¼ˆç¬¬ä¸‰é¢˜ï¼‰
 
-CREATE LOGIN yangcheng
-WITH PASSWORD='yangcheng',
+CREATE LOGIN yongheng
+WITH PASSWORD='yongheng',
 DEFAULT_DATABASE=[stdtb],
-DEFAULT_LANGUAGE=[¼òÌåÖÐÎÄ],
+DEFAULT_LANGUAGE=[ç®€ä½“ä¸­æ–‡],
 CHECK_EXPIRATION=OFF,
 CHECK_POLICY=OFF
 GO
 
----------------------------------------------£¨µÚËÄÌâ£©
+---------------------------------------------ï¼ˆç¬¬å››é¢˜ï¼‰
 
-CREATE USER [usr1] FOR LOGIN [yangcheng]
-CREATE USER [usr2] FOR LOGIN [yangcheng]
-CREATE USER [usr3] FOR LOGIN [yangcheng]
+CREATE USER [usr1] FOR LOGIN [yongheng]
+CREATE USER [usr2] FOR LOGIN [yongheng]
+CREATE USER [usr3] FOR LOGIN [yongheng]
 GO 
 
----------------------------------------------£¨µÚÎåÌâºÍµÚÆßÌâ·ÅÒ»Æð×öÁË£©
+---------------------------------------------ï¼ˆç¬¬äº”é¢˜å’Œç¬¬ä¸ƒé¢˜æ”¾ä¸€èµ·åšäº†ï¼‰
 
 USE stdtb
 GO
@@ -40,7 +40,7 @@ CREATE TABLE Student
 (
 Sno varchar(7) PRIMARY KEY,
 Sname varchar(10) NOT NULL,
-Ssex char(2)check(Ssex = 'ÄÐ' or Ssex = 'Å®'),
+Ssex char(2)check(Ssex = 'ç”·' or Ssex = 'å¥³'),
 Sage int check(Sage between 15 and 45),
 Sdept varchar(20)
 )
@@ -63,28 +63,28 @@ PRIMARY KEY(Sno,Cno)
 )
 GO
 
----------------------------------------------£¨µÚÁùÌâ£©
+---------------------------------------------ï¼ˆç¬¬å…­é¢˜ï¼‰
 
 USE stdtb
 GO
 INSERT INTO Student
-VALUES('201215121','ÀîÓÂ','ÄÐ','20','CS'),
-('201215122','Áõ³¿','Å®','19','CS'),
-('201215123','ÍõÃô','Å®','18','MA'),
-('201215125','ÕÅÁ¢','ÄÐ','20','IS'),
-('201215129','Àîµ¤','Å®','20','EE');
+VALUES('201215121','æŽå‹‡','ç”·','20','CS'),
+('201215122','åˆ˜æ™¨','å¥³','19','CS'),
+('201215123','çŽ‹æ•','å¥³','18','MA'),
+('201215125','å¼ ç«‹','ç”·','20','IS'),
+('201215129','æŽä¸¹','å¥³','20','EE');
 GO
 
 USE stdtb
 GO
 INSERT INTO Course
-VALUES('1','Êý¾Ý¿â','5','4'),
-('2','ÊýÑ§',' ','2'),
-('3','ÐÅÏ¢ÏµÍ³','1','4'),
-('4','²Ù×÷ÏµÍ³','6','2'),
-('5','Êý¾Ý½á¹¹','7','4'),
-('6','Êý¾Ý´¦Àí',' ','2'),
-('7','PASCALÓïÑÔ','6','4');
+VALUES('1','æ•°æ®åº“','5','4'),
+('2','æ•°å­¦',' ','2'),
+('3','ä¿¡æ¯ç³»ç»Ÿ','1','4'),
+('4','æ“ä½œç³»ç»Ÿ','6','2'),
+('5','æ•°æ®ç»“æž„','7','4'),
+('6','æ•°æ®å¤„ç†',' ','2'),
+('7','PASCALè¯­è¨€','6','4');
 GO
 
 USE stdtb
@@ -100,7 +100,7 @@ VALUES('201215121','1','92'),
 ('201215125','1','58');
 GO
 
----------------------------------------------£¨µÚ8Ìâ£©
+---------------------------------------------ï¼ˆç¬¬8é¢˜ï¼‰
 
 SELECT Sname,Sno,Sdept
 FROM Student;
@@ -144,7 +144,7 @@ WHERE Sno='201215121';
 
 SELECT Sname,Sno,Ssex
 FROM Student
-WHERE Sname LIKE'Áõ%';
+WHERE Sname LIKE'åˆ˜%';
 
 
 SELECT Sno,Grade
@@ -191,13 +191,13 @@ SELECT Sname,Sage
 FROM Student
 WHERE Sage<ALL(SELECT Sage FROM Student WHERE Sdept='CS');
 
----------------------------------------------£¨µÚ9Ìâ£©
+---------------------------------------------ï¼ˆç¬¬9é¢˜ï¼‰
 
 USE stdtb
 GO
 UPDATE Student SET Sage = Sage+1
 
----------------------------------------------£¨µÚ10Ìâ£©
+---------------------------------------------ï¼ˆç¬¬10é¢˜ï¼‰
 
 USE stdtb
  GO
@@ -214,7 +214,7 @@ USE stdtb
         FROM Student
 GO
 
----------------------------------------------£¨µÚ11Ìâ£©
+---------------------------------------------ï¼ˆç¬¬11é¢˜ï¼‰
 CREATE ROLE Teacher
 GRANT SELECT,UPDATE,INSERT
 ON Student
@@ -227,7 +227,7 @@ EXEC sp_addrolemember Teacher, 'usr2'
 EXEC sp_addrolemember Teacher, 'usr3'
 GO
 
----------------------------------------------£¨µÚ12Ìâ£©
+---------------------------------------------ï¼ˆç¬¬12é¢˜ï¼‰
 
 CREATE TABLE TEACHER(Eno NUMERIC(4)PRIMARY KEY,
 Ename CHAR(10),
